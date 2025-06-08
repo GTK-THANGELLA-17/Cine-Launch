@@ -1,0 +1,258 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 39 21% 31%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 0 0% 15%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 39 21% 31%;
+    --radius: 0.5rem;
+
+    /* Custom CineLaunch colors for light mode */
+    --cinelaunch-primary: 39 21% 31%; /* #273F4F */
+    --cinelaunch-dark: 0 0% 0%; /* Black */
+    --cinelaunch-matte: 0 0% 15%; /* Matte black */
+    --cinelaunch-ash: 0 0% 15%; /* Use matte black instead of ash for better contrast */
+    --cinelaunch-background: 45 22% 95%; /* Cream background */
+    --cinelaunch-surface: 45 20% 92%; /* Light cream surface */
+    --cinelaunch-text: 0 0% 5%; /* Near black for better contrast */
+    --cinelaunch-text-muted: 0 0% 15%; /* Matte black for better visibility */
+    --cinelaunch-card-bg: 45 25% 97%; /* Very light cream for cards */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 195 100% 85%; /* Ice blue */
+    --primary-foreground: 222.2 84% 4.9%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 195 100% 85%;
+
+    /* Custom CineLaunch colors for dark mode */
+    --cinelaunch-primary: 195 100% 85%; /* Ice blue */
+    --cinelaunch-dark: 0 0% 0%; /* Black */
+    --cinelaunch-matte: 0 0% 15%; /* Matte black */
+    --cinelaunch-ash: 215 20.2% 65.1%; /* Ash in dark mode */
+    --cinelaunch-background: 222.2 84% 4.9%;
+    --cinelaunch-surface: 217.2 32.6% 17.5%;
+    --cinelaunch-text: 210 40% 98%;
+    --cinelaunch-text-muted: 215 20.2% 65.1%;
+    --cinelaunch-card-bg: 217.2 32.6% 17.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/20 selection:text-foreground;
+  }
+  
+  body {
+    @apply bg-cinelaunch-background text-cinelaunch-text antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md border border-border/50 shadow-lg;
+    background: hsla(var(--cinelaunch-card-bg), 0.9);
+  }
+
+  .dark .glass-card {
+    background: hsla(var(--cinelaunch-surface), 0.6);
+    @apply border-cinelaunch-ash/30;
+  }
+  
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-cinelaunch-primary via-primary to-cinelaunch-primary bg-clip-text text-transparent;
+  }
+
+  /* Centering utilities */
+  .center-dialog {
+    @apply fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%];
+  }
+
+  .center-content {
+    @apply flex items-center justify-center;
+  }
+
+  .center-text {
+    @apply text-center;
+  }
+
+  /* Enhanced animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(195, 231, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(195, 231, 255, 0.6);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Loading animations */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  /* Responsive utilities */
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .responsive-flex {
+    @apply flex flex-col md:flex-row gap-4;
+  }
+
+  .responsive-text {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+
+  .responsive-heading {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+}
