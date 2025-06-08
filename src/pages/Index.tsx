@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -5,7 +6,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate("/home", { replace: true });  // Use replace to avoid history stack clutter
+    navigate("/home");
   }, [navigate]);
 
   return (
