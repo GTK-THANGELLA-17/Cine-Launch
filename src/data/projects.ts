@@ -8,7 +8,7 @@ export const allProjects: ProjectType[] = [
     genre: "Drama",
     synopsis: "A reclusive sitar prodigy returns to his ancestral home in Banaras to restore his guru’s forgotten ragas, only to uncover a dark secret hidden within the music itself.",
     description: "Raag Darpan follows Arvind, a withdrawn musician haunted by the failure of his debut. When his mentor dies mysteriously, Arvind is drawn to Banaras to decode unfinished compositions that seem to influence emotions unnaturally. As he unravels their origins, the music reveals not only his past trauma but a history of betrayal within the gharana.",
-    imageUrl: "https://images.unsplash.com/photo-1615966651269-dcaf196f40cf?q=80",
+    imageUrl: "/Raag Darpan.png",
     budget: 180000,
     fundingReceived: 135000,
     supporters: 298,
