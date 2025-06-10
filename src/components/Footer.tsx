@@ -38,7 +38,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: Github, href: "https://github.com/GTK-THANGELLA-17" },
+                { icon: Github, href: "https://github.com" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/gthangella/" },
                 { icon: Twitter, href: "https://twitter.com/g_thangella" }
               ].map((social, index) => (
