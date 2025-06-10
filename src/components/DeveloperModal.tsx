@@ -49,7 +49,7 @@ export const DeveloperModal = ({ open, onOpenChange }: DeveloperModalProps) => {
   const socialLinks = [
     {
       name: "GitHub",
-      href: "https://github.com/GTK-THANGELLA-17",
+      href: "https://github.com",
       icon: Github,
     },
     {
